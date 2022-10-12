@@ -41,7 +41,7 @@ function Game(){
     let secret = genNumberRange(range1, range2);
     let life = 5;
 
-    questionEl.innerHTML = `What is the secret number in memory (between ${range1} and ${range2})?`;
+    questionEl.innerHTML = `What is the secret number in memory (between <span class="info">${range1}</span> and <span class="info">${range2}</span>)?`;
     displayLife.textContent = life;
 
     const success = () => {
@@ -57,9 +57,9 @@ function Game(){
 
     const failure = () => {
         life--;
-        this.render();
-        toast.innerHTML = "Wrong guess, try again";
+        toast.innerHTML = `Wrong guess, the secret is ${secret}. Try again`;
         toast.className = "toast error show";
+        this.render();
         
         return setTimeout(() => {
             toast.classList.remove("show");
@@ -92,7 +92,7 @@ function Game(){
     this.render = function(){       
         secret = genNumberRange(range1, range2);
         guessInputEl.value = null;
-        questionEl.innerHTML = `What is the secret number in memory (between ${range1} and ${range2})?`;
+        questionEl.innerHTML = `What is the secret number in memory (between <span class="info">${range1}</span> and <span class="info">${range2}</span>)?`;
         displayLife.textContent = life;
         if(life === 0) { return renderGameOver() };
     }
