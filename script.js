@@ -75,7 +75,7 @@ function Game(){
 
         if(life === 0) { return renderGameOver() };
         if(!secretGuess){
-            toast.innerHTML = "Field cann't be empty!";
+            toast.innerHTML = "Field can't be empty!";
             toast.className = "toast error show";
             
             return setTimeout(() => {
